@@ -1,0 +1,6 @@
+created:
+    - database/factories/CuadroFactory.php
+    - database/migrations/2022_12_22_222022_create_cuadros_table.php
+    - app/Models/Cuadro.php
+models:
+    Cuadro: { name: string, painter: string, country: string }

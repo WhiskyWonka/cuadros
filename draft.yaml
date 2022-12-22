@@ -1,0 +1,5 @@
+models:
+  Cuadro:
+    name: string
+    painter: string
+    country: string
