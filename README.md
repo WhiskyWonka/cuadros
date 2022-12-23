@@ -71,7 +71,22 @@ cd cuadros
 
 composer install
 
+## Configurar conexion a DB
+
+Hacer una copia del .env.example a .env
+
+Configurar la seccion de conexion a sqlite
+
+DB_CONNECTION=sqlite
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=laravel
+# DB_USERNAME=root
+# DB_PASSWORD=
+
 ## Creacion de Base de datos
+
+## Crear el archivo /database/database.sqlite
 
 php artisan migrate
 
