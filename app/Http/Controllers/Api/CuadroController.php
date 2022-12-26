@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CuadroCollection;
 use App\Models\Cuadro;
 use App\Http\Resources\CuadroResource;
+use App\Http\Requests\CuadroCreateRequest;
+use App\Http\Requests\CuadroUpdateRequest;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -47,6 +49,13 @@ class CuadroController extends Controller
     {
         $input = $request->all();
 
+        // VALIDACION
+		$validator_errors = CuadroCreateRequest::validator($input);
+
+		if ($validator_errors) {
+            return response($validator_errors->errors()->toArray(), 400);
+		}
+
         $cuadro = Cuadro::create($input);
 
         return CuadroResource::make($cuadro);
@@ -55,6 +64,13 @@ class CuadroController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
+
+        // VALIDACION
+		$validator_errors = CuadroUpdateRequest::validator($input);
+
+		if ($validator_errors) {
+            return response($validator_errors->errors()->toArray(), 400);
+		}
         
         $cuadro = Cuadro::find($id);
 
